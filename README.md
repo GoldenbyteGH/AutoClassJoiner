@@ -2,7 +2,7 @@
 
 This python script permit to access to class_link via selenium
 
-This script is scheduled in crontab file by AutoRecording 
+This script is scheduled in crontab file by AutoRecording (https://github.com/GoldenbyteGH/AutoRecording)
 
 `mm HH DD MM * export DISPLAY=:1 && /bin/bash ClassJoiner.sh #DYNAMIC JOIN - 'FISICA GENERALE I'`
 
