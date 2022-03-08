@@ -33,12 +33,11 @@ if __name__ == '__main__':
 
     class_link=(class_links[str(Starting_Class)])
 
-    # Clean screen (Ctrl+Super+D)
-    #keyboard.press_and_release('alt+D')
+    # Clean screen (alt+D)
     pyautogui.keyDown("alt")
     pyautogui.press("d")
     pyautogui.keyUp("alt")
-    ####################d
+    ####################
 
     if 'webex' in class_link:
         Starting_Class  = UNISI_Class(Starting_Class, class_link,GMeet=False)
