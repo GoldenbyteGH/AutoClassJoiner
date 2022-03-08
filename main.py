@@ -1,5 +1,7 @@
+
 from classes import UNISI_Class
-import json,time
+import pyautogui
+import json,time,datetime
 
 
 def SearchStartingClass(classes_list):
@@ -14,7 +16,7 @@ if __name__ == '__main__':
 
     # Finding Starting Class
     try:
-        with open('/project_path/Classes_TMP_file.json') as json_file:
+        with open('/project_path/AutoClassJoiner/Classes_TMP_file.json') as json_file:
             classes_list = json.load(json_file)
     except Exception as error_message:
         print(error_message)
@@ -24,12 +26,19 @@ if __name__ == '__main__':
 
     try:
         # Finding Class link
-        with open('/project_path/LinkCourses.json') as json_file:
+        with open('/project_path/AutoClassJoiner/LinkCourses.json') as json_file:
             class_links = json.load(json_file)
     except Exception as error_message:
         print(error_message)
 
     class_link=(class_links[str(Starting_Class)])
+
+    # Clean screen (Ctrl+Super+D)
+    #keyboard.press_and_release('alt+D')
+    pyautogui.keyDown("alt")
+    pyautogui.press("d")
+    pyautogui.keyUp("alt")
+    ####################d
 
     if 'webex' in class_link:
         Starting_Class  = UNISI_Class(Starting_Class, class_link,GMeet=False)
@@ -38,8 +47,8 @@ if __name__ == '__main__':
         Starting_Class = UNISI_Class(Starting_Class, class_link)
         Starting_Class.Join2Class()
 
-    with open('/project_path/joinclasslog.txt','w') as log_file:
-        log_file.write('OK ',time.localtime())
+    with open('/project_path/AutoClassJoiner/joinclasslog.txt','a') as log_file:
+        log_file.write('OK '+Starting_Class.Name+' - '+ str(datetime.datetime.now())+'\n'),
     log_file.close()
 
 
