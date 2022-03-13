@@ -11,9 +11,14 @@ class UNISI_Class:
         self.GMeet = GMeet
         self.userdatadir = userdatadir
 
+        #Chrome 
         chromeOptions = webdriver.ChromeOptions()
         chromeOptions.add_argument(f"--user-data-dir={userdatadir}")  # Path to chrome profile
         self.driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chromeOptions)
+        
+        #Firefox
+        #self.userdatadir = userdatadir
+        #self.driver =webdriver.Firefox(webdriver.FirefoxProfile(userdatadir))
 
 
     def Join2Class(self):
