@@ -25,7 +25,13 @@ class UNISI_Class:
         if self.GMeet == True:
             self.driver.get(self.link)
             time.sleep(5)
-            self.driver.maximize_window()
+            self.driver.maximize_window()            
+            try:
+                # Disable microphone
+                self.driver.find_element(By.XPATH,"//div[@class='button_mic_div_name']").click()
+            except:
+                pass
+            # Join2Meet
             self.driver.find_element(By.XPATH,"//div[@class='button_div_name']").click()
         else:
             pass
